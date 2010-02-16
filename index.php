@@ -9,33 +9,54 @@
 <body>
 
 <?php
-
 	include("header.php");
-	
-	echo '<div id=\'main\'>';
 
-	//include("db_connect.php");
-	//include("sidebar.php");
-	echo 'Welcome to the Awesome Music Watch Website!';
+?>	
+
+<div id='main'>
+
+	<h2>Welcome to the Awesome Music Watch!</h2>
+	
+	<div id = 'artist'>
+		<h4>Featured Artist Section</h4>
+	
+<?php
+	include("db_connect.php");
+	
+	$query = "select Name, Genre, website, members, Year_Started from band ORDER BY RAND() LIMIT 1";
+	$result = mysqli_query($db, $query)
+	  or die("Error querying Database");
+	
+	$row = mysqli_fetch_array($result);
+	$bandName = $row['Name'];
+	$bandGenre = $row['Genre'];
+	$estDate = $row['Year_Started'];
+	
+	echo "<h5>$bandName</h5>";
+	echo "<p>Established: $estDate</p>";
+	echo "<p>$bandGenre</p>";
 	
 	
 	
-	echo '<div id = \'artist\'>';
-	
-	echo 'Artist Section';
-	
-	echo '</div>';
-	
-	echo '<div id = \'venue\'>';
-	echo 'Venue Section';
-	
-	echo '</div>';
-	
-	echo '</div>';
+	mysqli_close($db);
 
 ?>
-
-
-</body>
+	
+	</div>
+	
+	<div id = 'venue'>
+		<h4>Featured Venue Section</h4>
+	</div>
+	
+	
+	
 </div>
+
+<?php
+	include("sidebar.php");
+	
+?>
+
+</div>
+</body>
 </html>
