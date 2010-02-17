@@ -60,11 +60,11 @@ div#venue{
 		}
 		
 	#sidebar{
-		float: right;
+		float: left;
 		width: 250px;
 		background: #ECF1EF;
 		text-align: left;
-		padding-left: 10px;
-		margin-right: 10px;
+		padding-left: auto;
+		margin-right: auto;
 		
 	}

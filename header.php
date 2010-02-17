@@ -12,6 +12,12 @@
 	<td width="200">Home</td>
 	<td width="200">Add Band</td>
 	<td width="200">Add Venue</td>
+	<!-- <td width="200"><?php print( '<a href="http://localhost/music/">Home</a>' ); ?></td>           
+	
+	//Hyperlinks for header. URLs must be adjusting according to htdocs 
+
+	<td width="200"><?php print( '<a href="http://localhost/music/addband.php">Add Band</a>' ); ?></td>
+	<td width="200"><?php print( '<a href="http://localhost/music/">Add Venue</a>' ); ?></td> -->
 	</tr>
 	</table>
 	

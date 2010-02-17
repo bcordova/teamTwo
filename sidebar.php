@@ -1,5 +1,4 @@
-	
-	
+
 	<div id="sidebar">
 	
 	<?php
