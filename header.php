@@ -16,7 +16,7 @@
 	
 	<!--//Hyperlinks for header. URLs must be adjusting according to htdocs -->
 
-	<td width="200"><?php print( '<a href="addband.php">Add Band</a>' ); ?></td>
+	<td width="200"><?php print( '<a href="addBand.php">Add Band</a>' ); ?></td>
 	<td width="200"><?php print( '<a href="addvenue.php">Add Venue</a>' ); ?></td> 
 	</tr>
 	</table>

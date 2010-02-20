@@ -4,6 +4,7 @@
 -- ------------------------------------------------------
 -- Server version	5.1.37-1ubuntu5.1
 
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -15,6 +16,8 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+CREATE DATABASE IF NOT EXISTS musicwatch;
+GRANT ALL PRIVILEGES ON musicwatch.* to 'music'@'localhost' identified by 'dunngood';
 --
 -- Table structure for table `band`
 --
