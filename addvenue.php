@@ -27,7 +27,7 @@
 	<label for="name">State:</label>
     <input type="text" id="state" name="state" /><br />
 	<label for="name">Zip Code:</label>
-    <input type="text" id="zip" name="zip" /><br />
+    <input type="text" id="zipcode" name="zipcode" /><br />
 	<p></p>
     <input type="submit" value="Submit Information" name="submit" />
   </form>
