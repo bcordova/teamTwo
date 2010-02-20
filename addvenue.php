@@ -16,7 +16,7 @@
 <div id='main'>
 
 <p>Enter information about your club:</p>
-<form method="post" action="addvenue.php">
+<form method="post" action="newVenue.php">
     <label for="name">Club Name:</label>
     <input type="text" id="name" name="name" /><br />
 	<p>Where is your club located?<p>
@@ -27,14 +27,11 @@
 	<label for="name">State:</label>
     <input type="text" id="state" name="state" /><br />
 	<label for="name">Zip Code:</label>
-    <input type="text" id="zip" name="zip" /><br />
+    <input type="text" id="zipcode" name="zipcode" /><br />
 	<p></p>
     <input type="submit" value="Submit Information" name="submit" />
   </form>
 
-<?php
-///////
-?>
 </div>
 	
 </div>
