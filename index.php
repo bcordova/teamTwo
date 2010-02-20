@@ -67,6 +67,7 @@
 	echo "<h4><em>$venueName</em></h4>";
 	echo "<p><h5>Address:</h5> $venueAddress<br>$venueCity, $venueState</p>";
 	
+	mysqli_close($db);
 	
 ?>
 	</div>
