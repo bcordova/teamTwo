@@ -33,7 +33,7 @@
 	echo '<p><h3>Results:</h3></p>';
 	
 	
-	echo "<table><tr><th>Name</th><th>Genre</th><th>Year Started</th><th>Labels</th><th>Website</th><th>Members</th><th>Description</th><tr>\n\n";
+	echo "<table><tr><th>Name</th><th>Genre</th><th>Year Started</th><th>Labels</th><tr>\n\n";
   
 	  while($row = mysqli_fetch_array($result)) {
 	  
@@ -41,11 +41,10 @@
 		$genre = $row['genre'];
 		$year_started = $row['year_started'];
 		$labels = $row['labels'];
-		$website = $row['website'];
-		$members = $row['members'];
-		$description = $row['description'];
+
+
 		
-		echo "<tr><td  >$name</td><td  >$genre</td><td >$year_started</td><td>$labels</td><td>$website</td><td>$members</td><td>$description</td></tr>\n";
+		echo "<tr><td  >$name</td><td  >$genre</td><td >$year_started</td><td>$labels</td></tr>\n";
 	  }
 	echo "</table>\n"; 
 	
