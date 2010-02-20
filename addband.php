@@ -46,6 +46,7 @@ else return true;
 <div id="wrap">
  <BODY>
  <?php include("header.php"); ?>
+ <div id="main">
 
   <form method="post" form name=form action="submitband.php" onSubmit="return checkFields();">
 
@@ -69,9 +70,11 @@ Band Members:
 
 <input type=submit name="submit" value="Submit Form!">
 
+
 </pre>
 </form>
 </div>
 <?php include("sidebar.php"); ?>
+</div>
  </BODY>
 </HTML>
