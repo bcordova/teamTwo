@@ -16,7 +16,7 @@
 <div id='main'>
 
 <p>Enter information about your club:</p>
-<form method="post" action="addvenue.php">
+<form method="post" action="newVenue.php">
     <label for="name">Club Name:</label>
     <input type="text" id="name" name="name" /><br />
 	<p>Where is your club located?<p>
@@ -32,17 +32,15 @@
     <input type="submit" value="Submit Information" name="submit" />
   </form>
 
-<?php
-///////
-?>
+
 </div>
 	
-</div>
+
 <?php
 	include("sidebar.php");
 	
 ?>
-
 </div>
+
 </body>
 </html>
