@@ -34,7 +34,7 @@
   	$state = $row['State'];
 	$zipcode = $row['zip'];
 	$address = $row['Address'];
-	echo "<tr><td  >$name</td><td >$city</td><td > $state</td><td >$zip</td><td>$address</td></tr>\n";
+	echo "<tr><td  >$name</td><td >$city</td><td > $state</td><td >$zipcode</td><td>$address</td></tr>\n";
 	}
  echo "</table>\n";
 

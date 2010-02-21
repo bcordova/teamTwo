@@ -5,61 +5,17 @@
 -- Server version	5.1.37-1ubuntu5
 CREATE DATABASE IF NOT EXISTS musicwatch;
 GRANT ALL PRIVILEGES ON musicwatch.* to 'music'@'localhost' identified by 'dunngood';
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `Band`
---
 
 DROP TABLE IF EXISTS `Band`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Band` (
-  `bandID` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(100) DEFAULT NULL,
-  `Genre` varchar(100) DEFAULT NULL,
-  `Year_Started` date DEFAULT NULL,
-  `labels` varchar(100) DEFAULT NULL,
-  `website` varchar(100) DEFAULT NULL,
-  `members` blob,
-  PRIMARY KEY (`bandID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Band`
---
+CREATE TABLE `Band` (`bandID` int(11) NOT NULL AUTO_INCREMENT,  `Name` varchar(100) DEFAULT NULL,  `Genre` varchar(100) DEFAULT NULL,`Year_Started` date DEFAULT NULL, `labels` varchar(100) DEFAULT NULL,`website` varchar(100) DEFAULT NULL, `members` blob, PRIMARY KEY (`bandID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 LOCK TABLES `Band` WRITE;
-/*!40000 ALTER TABLE `Band` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Band` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `Venue`
---
 
 DROP TABLE IF EXISTS `Venue`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Venue` (
-  `venueID` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(100) DEFAULT NULL,
-  `City` varchar(50) DEFAULT NULL,
-  `State` varchar(50) DEFAULT NULL,
-  `zip` varchar(10) DEFAULT NULL,
-  `Address` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`venueID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE `Venue` (`venueID` int(11) NOT NULL AUTO_INCREMENT, `Name` varchar(100) DEFAULT NULL, `City` varchar(50) DEFAULT NULL,`State` varchar(50) DEFAULT NULL,`zip` varchar(10) DEFAULT NULL, `Address` varchar(100) DEFAULT NULL, PRIMARY KEY (`venueID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,13 +34,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `comments` (
-  `commentID` int(11) NOT NULL AUTO_INCREMENT,
-  `userID` int(11) DEFAULT NULL,
-  `bandID` int(11) DEFAULT NULL,
-  `text` blob,
-  PRIMARY KEY (`commentID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE `comments` ( `commentID` int(11) NOT NULL AUTO_INCREMENT, `userID` int(11) DEFAULT NULL, `bandID` int(11) DEFAULT NULL, `text` blob, PRIMARY KEY (`commentID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,16 +53,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `events`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `events` (
-  `eventID` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(100) DEFAULT NULL,
-  `venueID` int(11) NOT NULL,
-  `bandID` int(11) NOT NULL,
-  `Starts` datetime DEFAULT NULL,
-  `Ends` datetime DEFAULT NULL,
-  `Description` blob,
-  PRIMARY KEY (`eventID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE `events` (`eventID` int(11) NOT NULL AUTO_INCREMENT, `Name` varchar(100) DEFAULT NULL,`venueID` int(11) NOT NULL, `bandID` int(11) NOT NULL, `Starts` datetime DEFAULT NULL, `Ends` datetime DEFAULT NULL, `Description` blob, PRIMARY KEY (`eventID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,15 +72,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `users` (
-  `userID` int(11) NOT NULL AUTO_INCREMENT,
-  `Username` varchar(30) NOT NULL,
-  `Email` varchar(50) NOT NULL,
-  `FirstName` varchar(30) DEFAULT NULL,
-  `LastName` varchar(30) DEFAULT NULL,
-  `BirthDate` date DEFAULT NULL,
-  PRIMARY KEY (`userID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE `users` (`userID` int(11) NOT NULL AUTO_INCREMENT, `Username` varchar(30) NOT NULL, `Email` varchar(50) NOT NULL, `FirstName` varchar(30) DEFAULT NULL, `LastName` varchar(30) DEFAULT NULL, `BirthDate` date DEFAULT NULL, PRIMARY KEY (`userID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
