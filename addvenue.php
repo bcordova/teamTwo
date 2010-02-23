@@ -46,8 +46,10 @@ else return true;
   <form method="post" form name=form action="newVenue.php" onSubmit="return checkFields();">
 
 <pre>
-
+<p>Enter information about your club:</p>
 Club Name:    <input type=text name="name" size=30>
+
+<p>Where is your club located?<p>
 
 Address:      <input type=text name="address" size=30>
 
