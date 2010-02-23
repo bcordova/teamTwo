@@ -25,6 +25,8 @@
 	$query = "select * from venue";
 	$result = mysqli_query($db, $query) or die( mysqli_error($db));
 
+	echo "<p>Current Venues On File:</p>";
+
 	echo "<table id=\"hor-minimalist-b\">\n<tr><th>Name</th><th>City</th><th>State</th><th>Zip Code</th><th>Address</th><th>\n\n";
 
   while($row = mysqli_fetch_array($result)) {

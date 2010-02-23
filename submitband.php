@@ -13,7 +13,7 @@
 	
 	  
 	<div id="main">
-	
+	<h3>Thank you for entering your information.</h3>
 <?php
 
   include "db_connect.php";
@@ -24,9 +24,6 @@
   $labels = $_POST['labels'] ;
   $url = $_POST['website'];
   $bandmembers = $_POST['members'];
-
-
-  echo "<p>Thanks for submitting the form.</p>";
   
   
   $query = "INSERT INTO band (Name, Genre, Year_Started, labels, website, members) " . 
@@ -36,7 +33,7 @@
    or die("Error Querying Database");
    
    
-  echo "<h1>Current Bands On File</h1>";
+  echo "<p>Current Bands On File:</p>";
   
   
   $query = "SELECT Name, Genre, website FROM band ORDER BY Year_Started";
@@ -50,7 +47,7 @@
   	$name = $row['Name'];
   	$genre = $row['Genre'];
   	$url = $row['website'];
-  	echo "<tr><td  >$name</td><td>$genre</td><td >$url</td></tr>\n";
+  	echo "<tr><td  ><a href=\"bandview.php?name=$name\">$name</a></td><td>$genre</td><td ><a href=\"$url\">$url</a></td></tr>\n";
   }
  echo "</table>\n"; 
   
@@ -63,8 +60,6 @@
 	
 	
    <?php include("sidebar.php"); ?>
-
-	<div id="footer"><p>Remastered by Benjamin Cordova</p></div>
 </div>
 </body>
 </html>

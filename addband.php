@@ -54,15 +54,15 @@ else return true;
 <input type=hidden name=subject value="Freedback">
 
 <pre>
-Band Name:  <input type=text name="name" size=30>
+Band Name:    <input type=text name="name" size=30>
 
-Genre:      <input type=text name="genre" size=30>
+Genre:        <input type=text name="genre" size=30>
 
-Year Formed:<input type=text name="year" size=30>
+Year Formed:  <input type=text name="year" size=30>
 
-Labels:     <input type=text name="labels" size=30>
+Labels:       <input type=text name="labels" size=30>
 
-Web Site:   <input type=text value="http://" name="website" size=30>
+Web Site:     <input type=text value="http://" name="website" size=30>
 
 Band Members:  
 

@@ -19,16 +19,16 @@
 	include("db_connect.php");
 
 	
-	$dowant = $_POST['bandsearchbox'];
+	$dowant = $_POST['searchbox'];
 
 	
-	$query = "SELECT * FROM band WHERE name LIKE '$dowant%' OR genre LIKE '$dowant%' OR year_started LIKE '$dowant%' OR labels LIKE '$dowant%' OR website LIKE '$dowant%' OR members LIKE '$dowant%' OR description LIKE '$dowant%'";
+	$query = "SELECT * FROM band WHERE Name LIKE \"%$dowant%\" OR Genre LIKE \"%$dowant%\" OR Year_Started LIKE \"%$dowant%\" OR labels LIKE \"%$dowant%\" OR website LIKE \"%$dowant%\" OR members LIKE \"%$dowant%\"";
 	
 	
 	$result = mysqli_query($db, $query)
 	  or die("<p>Error Querying Database<p>");
 	
-	echo "<p>You searched for bands containing the word \"$dowant.\"</p>";
+	echo "<p>You searched for bands containing the word \"$dowant\"</p>";
 	
 	echo '<p><h3>Results:</h3></p>';
 	
@@ -37,15 +37,15 @@
   
 	  while($row = mysqli_fetch_array($result)) {
 	  
-		$name = $row['name'];
-		$genre = $row['genre'];
-		$year_started = $row['year_started'];
+		$name = $row['Name'];
+		$genre = $row['Genre'];
+		$year_started = $row['Year_Started'];
 		$labels = $row['labels'];
 
 
 		
-		echo "<tr><td  >$name</td><td  >$genre</td><td >$year_started</td><td>$labels</td></tr>\n";
-	  }
+      echo "<tr><td  ><a href=\"bandview.php?name=$name\">$name</a></td><td  >$genre</td><td >$year_started</td><td>$labels</td></tr>\n";
+  }	  
 	echo "</table>\n"; 
 	
 	

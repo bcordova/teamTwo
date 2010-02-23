@@ -33,7 +33,7 @@
 	$estDate = $row['Year_Started'];
 	$website = $row['website'];
 	
-	echo "<h4><em>$bandName</em></h4>";
+	echo "<h4><em><a href=\"bandview.php?name=$bandName\">$bandName</a></em></h4>";
 	echo "<p><h5>Established:</h5> $estDate</p>";
 	echo "<p><h5>Genres:</h5>$bandGenre</p>";
 	echo "<p><h5>Website:</h5><a href=\"$website\">$website</a></p>";

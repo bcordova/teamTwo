@@ -1,46 +1,69 @@
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Awesome Music Watch</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
-</head>
+  <SCRIPT LANGUAGE="JavaScript">
 
+
+function checkFields() {
+missinginfo = "";
+if (document.form.name.value == "") {
+missinginfo += "\n     -  Club Name";
+}
+if (document.form.address.value == "") {
+missinginfo += "\n     -  Address";
+}
+if (document.form.city.value == "") {
+missinginfo += "\n     -  City";
+}
+if (document.form.state.value == "") {
+missinginfo += "\n     -  State";
+}
+if(document.form.zip.value == "") {
+missinginfo += "\n     -  Zip Code";
+}
+
+if (missinginfo != "") {
+missinginfo ="_____________________________\n" +
+"You failed to correctly fill in your:\n" +
+missinginfo + "\n_____________________________" +
+"\nPlease re-enter and submit again!";
+alert(missinginfo);
+return false;
+}
+else return true;
+}
+
+</script>
+ </HEAD>
 <div id="wrap">
-<body>
+ <BODY>
+ <?php include("header.php"); ?>
+ <div id="main">
 
-<?php
-	include("header.php");
+  <form method="post" form name=form action="newVenue.php" onSubmit="return checkFields();">
 
-?>	
+<pre>
 
-<div id='main'>
+Club Name:    <input type=text name="name" size=30>
 
-<p>Enter information about your club:</p>
-<form method="post" action="newVenue.php">
-    <label for="name">Club Name:</label>
-    <input type="text" id="name" name="name" /><br />
-	<p>Where is your club located?<p>
-	<label for="name">Address:</label>
-    <input type="text" id="address" name="address" /><br />
-	<label for="name">City:</label>
-    <input type="text" id="city" name="city" /><br />
-	<label for="name">State:</label>
-    <input type="text" id="state" name="state" /><br />
-	<label for="name">Zip Code:</label>
-    <input type="text" id="zipcode" name="zipcode" /><br />
-	<p></p>
-    <input type="submit" value="Submit Information" name="submit" />
-  </form>
+Address:      <input type=text name="address" size=30>
+
+City:         <input type=text name="city" size=30>
+
+State:        <input type=text name="state" size=30>
+
+Zip Code:     <input type=text name="zip" size=10>
+
+<input type=submit name="submit" value="Submit Form!">
 
 
+</pre>
+</form>
 </div>
-	
-
-<?php
-	include("sidebar.php");
-	
-?>
+<?php include("sidebar.php"); ?>
 </div>
-
-</body>
-</html>
+ </BODY>
+</HTML>
