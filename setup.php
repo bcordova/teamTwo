@@ -38,6 +38,6 @@ Enter Root Password: <input type="password" name="pass">
 </form>
 </body>
 </html>
-<?
+<?php
 }
 ?>
