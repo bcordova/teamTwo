@@ -35,10 +35,10 @@
   
 	  while($row = mysqli_fetch_array($result)) {
 	  
-		$name = $row['name'];
-		$cityname = $row['city'];
-		$state = $row['state'];
-		$address = $row['address'];
+		$name = $row['Name'];
+		$cityname = $row['City'];
+		$state = $row['State'];
+		$address = $row['Address'];
 		
 		echo "<tr><td  >$name</td><td  >$cityname</td><td >$state</td><td>$address</td></tr>\n";
 	  }
