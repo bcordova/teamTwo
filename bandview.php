@@ -11,14 +11,14 @@
  <?php include("header.php"); ?>
  <div id="main">
 
- <?php
+<?php
 
-  $bandName = $_GET['name'];
+  $id = $_GET['tag'];
 ?>
 <?php
 	include("db_connect.php");
 	
-	$query = "select * from band where name like '$bandName'";
+	$query = "select * from band where bandID = '$id'";
 
 	$result = mysqli_query($db, $query)
 	  or die("Error querying Database");
@@ -31,7 +31,7 @@
 	$labels = $row['labels'];
 	$bandMembers = $row['members'];
 	
-	echo "<h4><em>$bandName</a><a href=\"addband.php?name=$bandName\" style='color: #CC0000; font-size: 10px'> EDIT </a>/<a href=\"deleteband.php?name=$bandName\" style='color: #CC0000; font-size: 10px'>   DELETE</a></em></h4>";
+	echo "<h4><em>$bandName</a><a href=\"editband.php?tag=$id\" style='color: #CC0000; font-size: 10px'> EDIT </a>/<a href=\"deleteband.php?tag=$id\" style='color: #CC0000; font-size: 10px'>   DELETE</a></em></h4>";
 	echo "<p><h5>Established:</h5> $estDate</p>";
 	echo "<p><h5>Genres:</h5>$bandGenre</p>";
 	echo "<p><h5>Band Members:</h5>$bandMembers</p>";

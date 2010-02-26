@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Add Band</title>
+  <title>Update Band</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
@@ -18,18 +18,20 @@
   $id = $_GET['tag'];
   include "db_connect.php";
 
-  $name = $_POST['name'];
-  $genre = $_POST['genre'];
-  $whenformed = $_POST['year'];
-  $labels = $_POST['labels'] ;
-  $url = $_POST['website'];
-  $bandmembers = $_POST['members'];
+   $name = $_POST['name'];
+   $genre = $_POST['genre'];
+   $whenformed = $_POST['year'];
+   $labels = $_POST['labels'] ;
+   $url = $_POST['website'];
+   $bandmembers = $_POST['members'];
+
+ 
   
-  $query = "INSERT INTO band (Name, Genre, Year_Started, labels, website, members) " . 
-  		   "VALUES ('$name', '$genre', '$whenformed', '$labels', '$url', '$bandmembers')";
+  $query = "UPDATE band SET Name='$name', Genre='$genre', Year_Started='$whenformed', labels ='$labels', website='$url', members='$bandmembers' WHERE bandID = '$id'"; 
   
   $result = mysqli_query($db, $query)
    or die("Error Querying Database");
+   
    
   echo "<p>Current Bands On File:</p>";
   

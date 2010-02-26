@@ -23,17 +23,19 @@
 <?php
 	include("db_connect.php");
 	
-	$query = "select Name, Genre, website, members, Year_Started from band ORDER BY RAND() LIMIT 1";
+	$query = "select bandID, Name, Genre, website, members, Year_Started from band ORDER BY RAND() LIMIT 1";
 	$result = mysqli_query($db, $query)
 	  or die("Error querying Database");
 	
 	$row = mysqli_fetch_array($result);
+	$id = $row['bandID'];
 	$bandName = $row['Name'];
 	$bandGenre = $row['Genre'];
 	$estDate = $row['Year_Started'];
 	$website = $row['website'];
 	
-	echo "<h4><em><a href=\"bandview.php?name=$bandName\">$bandName</a></em></h4>";
+	
+	echo "<h4><em><a href=\"bandview.php?tag=$id\">$bandName</a></em></h4>";
 	echo "<p><h5>Established:</h5> $estDate</p>";
 	echo "<p><h5>Genres:</h5>$bandGenre</p>";
 	echo "<p><h5>Website:</h5><a href=\"$website\">$website</a></p>";

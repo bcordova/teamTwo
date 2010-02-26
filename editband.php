@@ -2,9 +2,10 @@
 <HTML>
  <HEAD>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Add Band</title>
+  <title>Edit Band</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
   <SCRIPT LANGUAGE="JavaScript">
+
 
 
 function checkFields() {
@@ -53,26 +54,44 @@ else return true;
  <BODY>
  <?php include("header.php"); ?>
  <div id="main">
+<?php
 
-  <form method="post" form name=form action="submitband.php" onSubmit="return checkFields();">
+    $id = $_GET['tag'];
+	include("db_connect.php");
+	
+	$query = "select * from band where bandID like '$id'";
+
+	$result = mysqli_query($db, $query)
+	  or die("Error querying Database");
+	
+	$row = mysqli_fetch_array($result);
+	$name = $row['Name'];
+	$bandGenre = $row['Genre'];
+	$estDate = $row['Year_Started'];
+	$website = $row['website'];
+	$labels = $row['labels'];
+	$bandMembers = $row['members'];
+
+?>
+<form method="post" form name=form action="updateband.php?tag=$id" onSubmit="return checkFields();">
 
 <input type=hidden name=to value='you @ your domain . web'>
 <input type=hidden name=subject value="Freedback">
 
 <pre>
-Band Name:    <input type=text name="name" size=30>
+Band Name:    <input type=text value= "<?php $name; echo $name; ?>" name="name" size=30>
 
-Genre:        <input type=text name="genre" size=30>
+Genre:        <input type=text value = "<?php $bandGenre; echo $bandGenre; ?>" name="genre" size=30>
 
-When Formed:  <input type=text value ="YYYY-MM-DD" name="year" size=30>
+When Formed:  <input type=text value ="<?php $estDate; echo $estDate; ?>" name="year" size=30>
 
-Labels:       <input type=text name="labels" size=30>
+Labels:       <input type=text value = "<?php $labels; echo $labels; ?>" name="labels" size=30>
 
-Web Site:     <input type=text value="http://" name="website" size=30>
+Web Site:     <input type=text value="<?php $website; echo $website; ?>" name="website" size=30>
 
 Band Members:  
 
-<textarea rows=3 cols=40 name="members"></textarea>
+<textarea rows=3 cols=40 name="members"><?php $bandMembers; echo $bandMembers; ?></textarea>
 
 <input type=submit name="submit" value="Submit Form!">
 
