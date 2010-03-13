@@ -1,6 +1,6 @@
 	<div id="header"><h1><a href="index.php">Awesome Music Watch</a></h1></div>
 	
-	<p><i>Team Two's Index of Artists and Venues.</i></p>
+	<p><i>Team Two's Index of Artists, Venues, and Events.</i></p>
 	
 	
 	<p>
@@ -12,7 +12,7 @@
 	<!--<td width="200">Home</td>
 	<td width="200">Add Band</td>
 	<td width="200">Add Venue</td>-->
-	<td width="200"><?php print( '<a href="index.php">Home</a>' ); ?></td>           
+	<td width="200"><?php print( '<a href="addevent.php">Add Event</a>' ); ?></td>           
 	
 	<!--//Hyperlinks for header. URLs must be adjusting according to htdocs -->
 
