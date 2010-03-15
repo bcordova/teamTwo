@@ -1,3 +1,20 @@
+<?php
+session_start();
+include("db_connect.php");
+if(isset($_POST['login']))
+{
+	$user = $_POST['user'];
+	$password = $_POST['password'];
+	$query = "select Username from users where password=SHA('$password')";
+	$r = mysqli_query($db,$query);
+	if($row =mysqli_fetch_array($r))
+	$_SESSION['user']=$user;
+	else
+	{
+	header("location: login.php");
+	}
+}
+?>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,7 +38,6 @@
 		<h3>Featured Artist Section</h3>
 	
 <?php
-	include("db_connect.php");
 	
 	$query = "select bandID, Name, Genre, website, members, Year_Started from band ORDER BY RAND() LIMIT 1";
 	$result = mysqli_query($db, $query)

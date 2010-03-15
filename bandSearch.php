@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -36,7 +39,8 @@
 	echo "<table><tr><th>Name</th><th>Genre</th><th>Year Started</th><th>Labels</th><tr>\n\n";
   
 	  while($row = mysqli_fetch_array($result)) {
-	  
+	  	
+		$ID = $row['bandID'];
 		$name = $row['Name'];
 		$genre = $row['Genre'];
 		$year_started = $row['Year_Started'];
@@ -44,7 +48,7 @@
 
 
 		
-      echo "<tr><td  ><a href=\"bandview.php?name=$name\">$name</a></td><td  >$genre</td><td >$year_started</td><td>$labels</td></tr>\n";
+      echo "<tr><td  ><a href=\"bandview.php?tag=$ID\">$name</a></td><td  >$genre</td><td >$year_started</td><td>$labels</td></tr>\n";
   }	  
 	echo "</table>\n"; 
 	

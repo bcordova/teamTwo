@@ -16,8 +16,22 @@
 	
 	<!--//Hyperlinks for header. URLs must be adjusting according to htdocs -->
 
-	<td width="200"><?php print( '<a href="addBand.php">Add Band</a>' ); ?></td>
+	<td width="200"><?php print( '<a href="addband.php">Add Band</a>' ); ?></td>
 	<td width="200"><?php print( '<a href="addvenue.php">Add Venue</a>' ); ?></td> 
+	<?php
+	if(!isset($_SESSION['user']))
+	{
+	?>
+	<td width="200"><?php print( '<a href="login.php">Login/Register</a>' ); ?></td> 
+	<?php
+	}
+	else
+	{
+	?>
+	<td width="200"><?php print( '<a href="logout.php">Logout</a>' ); ?></td> 
+	<?php
+	}
+	?>
 	</tr>
 	</table>
 	

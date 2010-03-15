@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
  <HEAD>
@@ -73,7 +76,7 @@ else return true;
 	$bandMembers = $row['members'];
 
 ?>
-<form method="post" form name=form action="updateband.php?tag=$id" onSubmit="return checkFields();">
+<form method="post" form name=form <?php echo "action='updateband.php?tag=$id'" ?> onSubmit="return checkFields();">
 
 <input type=hidden name=to value='you @ your domain . web'>
 <input type=hidden name=subject value="Freedback">
