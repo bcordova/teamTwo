@@ -3,6 +3,9 @@
 -- Host: localhost    Database: musicwatch
 -- ------------------------------------------------------
 -- Server version	5.1.37-1ubuntu5.1
+CREATE DATABASE IF NOT EXISTS musicwatch;
+GRANT ALL PRIVILEGES ON musicwatch.* to 'music'@localhost' indentified by 'dunngood';
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
