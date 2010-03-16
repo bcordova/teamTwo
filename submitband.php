@@ -37,7 +37,7 @@ session_start();
   echo "<p>Current Bands On File:</p>";
   
   
-  $query = "SELECT Name, Genre, website FROM band ORDER BY Year_Started";
+  $query = "SELECT bandID, Name, Genre, website FROM band ORDER BY Year_Started";
   
   $result = mysqli_query($db, $query)
    or die("Error Querying Database");
@@ -45,6 +45,7 @@ session_start();
   echo "<table id=\"hor-minimalist-b\">\n<tr><th>Band Name</th><th>Genre</th><th>Website</th><tr>\n\n";
   
   while($row = mysqli_fetch_array($result)) {
+    $id = $row['bandID'];
   	$name = $row['Name'];
   	$genre = $row['Genre'];
   	$url = $row['website'];
