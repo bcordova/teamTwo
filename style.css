@@ -11,6 +11,13 @@ a{
 
 td{
 	background-color:#FFFFF2;
+	color: #458B74;
+	text-align:center
+}
+
+th{
+	background-color:#FFFFF2;
+	color: #458B74;
 	text-align:center
 }
 
@@ -42,7 +49,7 @@ div#venue{
 	
 	
 	#wrap{
-	color: #458B74;
+		color: #458B74;
 		width: 780px;
 		margin-top: 40px;
 		margin-right: auto;

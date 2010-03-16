@@ -52,7 +52,7 @@ session_start();
   
   $eventquery = "INSERT INTO events (Name, venueID, bandID, Starts, Ends, Description) " . 
   		   "VALUES ('$name', '$venueID', '$bandID', '$Starts', '$Ends', '$Description')";
-  echo $eventquery;
+  //echo $eventquery;
   $result = mysqli_query($db, $eventquery)
    or die("Error Querying Database: Inserting into events");
    

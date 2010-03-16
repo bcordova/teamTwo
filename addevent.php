@@ -65,9 +65,40 @@ function checkFields() {
 <pre>
 Event Name:	<input type=text name="name" size=30>
 
-Venue:		<input type=text name="venue" size=30>
+<?php
+//Venue:		<input type=text name="venue" size=30>
 
-Band:		<input type=text name="band" size=30>
+include "db_connect.php";
+
+$venueQuery = "select distinct name from venue";
+$venueResults = mysqli_query($db, $venueQuery)
+	or die("Error querying database");
+	
+echo 'Venue:		<select name = "venue">';
+while($venueRows = mysqli_fetch_array($venueResults)){
+	$temp = $venueRows[0];
+	echo "<option>$temp</option>";
+}
+echo '</select>';
+
+echo '<br><br>';
+
+$bandQuery = "select distinct name from band";
+$bandResults = mysqli_query($db, $bandQuery)
+	or die("Error querying database");
+	
+echo 'Band:		<select name = "band">';
+while($bandRows = mysqli_fetch_array($bandResults)){
+	$temp = $bandRows[0];
+	echo "<option>$temp</option>";
+}
+echo '</select>';
+
+
+//Band:		<input type=text name="band" size=30>
+
+?>
+
 
 Starts:		<input type=text value ="YYYY-MM-DD" name="starts" size=30>
 
