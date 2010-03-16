@@ -7,6 +7,7 @@ session_start();
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Add Band</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript" src="calendarDateInput.js"></script>
   <SCRIPT LANGUAGE="JavaScript">
 
 
@@ -67,7 +68,8 @@ Band Name:    <input type=text name="name" size=30>
 
 Genre:        <input type=text name="genre" size=30>
 
-When Formed:  <input type=text value ="YYYY-MM-DD" name="year" size=30>
+When Formed:  
+<script>DateInput('year',true,'YYYY-MM-DD')</script>
 
 Labels:       <input type=text name="labels" size=30>
 

@@ -7,8 +7,7 @@ session_start();
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Add Event</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
-<SCRIPT LANGUAGE="JavaScript">
-
+<script>
 
 function checkFields() {
 	re = "/^(\d{4})\/\(\d{1,2})\/\(\d{1,2})/"; 
@@ -50,6 +49,7 @@ function checkFields() {
 }
 
 </script>
+<script type="text/javascript" src="calendarDateInput.js"></script>
  </HEAD>
  
 <div id="wrap">
@@ -100,9 +100,11 @@ echo '</select>';
 ?>
 
 
-Starts:		<input type=text value ="YYYY-MM-DD" name="starts" size=30>
+Starts:	<input type="text" name="stime" value="HH:MM"/>
+<script>DateInput('starts',true,'YYYY-MM-DD')</script>
 
-Ends:		<input type=text value ="YYYY-MM-DD" name="ends" size=30>
+Ends:	<input type="text" name="etime" value="HH:MM"/>
+<script>DateInput('ends',true,'YYYY-MM-DD')</script>
 
 Description:  
 
