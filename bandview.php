@@ -34,7 +34,9 @@ session_start();
 	$labels = $row['labels'];
 	$bandMembers = $row['members'];
 	
-	echo "<h4><em>$bandName</a><a href=\"editband.php?tag=$id\" style='color: #CC0000; font-size: 10px'> EDIT </a>/<a href=\"deleteband.php?tag=$id\" style='color: #CC0000; font-size: 10px'>   DELETE</a></em></h4>";
+	echo "<h4><em>$bandName</a><a href=\"editband.php?tag=$id\" style='color: #CC0000; font-size: 10px'> EDIT </a>
+	/<a href=\"deleteband.php?tag=$id\" style='color: #CC0000; font-size: 10px'>   DELETE</a>
+	</em>/<a href=\"addImage.php?tag=$id\" style='color: #CC0000; font-size: 10px'>   ADD PICTURE</a></em></h4>";
 	echo "<p><h5>Established:</h5> $estDate</p>";
 	echo "<p><h5>Genres:</h5>$bandGenre</p>";
 	echo "<p><h5>Band Members:</h5>$bandMembers</p>";

@@ -24,8 +24,10 @@ session_start();
   $name = $_POST['name'];
   $venue = $_POST['venue'];
   $band = $_POST['band'];
+  $etime = $_POST['etime'];
+  $stime = $_POST['stime'];
   $starts = $_POST['starts'] ;
-  $end = $_POST['end'];
+  $end = $_POST['ends'];
   $description = $_POST['description'];
   
   echo "Name: $name";
@@ -51,8 +53,8 @@ session_start();
   
   
   $eventquery = "INSERT INTO events (Name, venueID, bandID, Starts, Ends, Description) " . 
-  		   "VALUES ('$name', '$venueID', '$bandID', '$Starts', '$Ends', '$Description')";
-  echo $eventquery;
+  		   "VALUES ('$name', '$venueID', '$bandID', '$starts $stime:00', '$end $etime:00', '$Description')";
+  //echo $eventquery;
   $result = mysqli_query($db, $eventquery)
    or die("Error Querying Database: Inserting into events");
    
