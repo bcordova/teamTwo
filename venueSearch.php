@@ -35,7 +35,7 @@
   
 	  while($row = mysqli_fetch_array($result)) {
 	  
-	  
+		$id = $row['venueID'];
 		$name = $row['Name'];
 		$cityname = $row['City'];
 		$state = $row['State'];

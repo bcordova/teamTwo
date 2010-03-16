@@ -12,6 +12,8 @@
 <?php
 	$id = $_GET['id'];
 	
+	//echo "<p>id = $id</p>";
+	
 	include("db_connect.php");
 	
 	$query = "select * from venue where venueID = $id";
@@ -20,7 +22,6 @@
 	  or die("Error in First Database Query");
 	
 	$row = mysqli_fetch_array($result);
-	$ID = $row['venueID'];
 	$name = $row['Name'];
 	$city = $row['City'];
 	$state = $row['State'];
@@ -49,4 +50,13 @@
 	  }
 	echo "</table>\n"; 
 	
+	?>
+	
+	
+</div>
+
+<?php
+	include("sidebar.php");
+	
+
 ?>
