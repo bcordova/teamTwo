@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -38,12 +35,13 @@ session_start();
   
 	  while($row = mysqli_fetch_array($result)) {
 	  
+		$id = $row['venueID'];
 		$name = $row['Name'];
 		$cityname = $row['City'];
 		$state = $row['State'];
 		$address = $row['Address'];
 		
-		echo "<tr><td  >$name</td><td  >$cityname</td><td >$state</td><td>$address</td></tr>\n";
+		echo "<tr><td  ><a href=\"venueShows.php?id=$id\">$name</a></td><td  >$cityname</td><td >$state</td><td>$address</td></tr>\n";
 	  }
 	echo "</table>\n"; 
 	
