@@ -12,6 +12,7 @@
  <div id="main">
 
 <?php
+$id = $_GET['tag'];
 
 $uploadDir = 'images/'; //Image Upload Folder
 
@@ -73,7 +74,7 @@ $filePath = addslashes($filePath);
 
 ?> 
 	
-	<form name="Image" enctype="multipart/form-data" action="addImage.php" method="POST">
+	<form name="Image" enctype="multipart/form-data" action="index.php" method="POST">
 
 	<input type="file" name="Photo" size="30" accept="image/gif, image/jpeg, image/x-ms-bmp, image/x-png"><br/>
 
