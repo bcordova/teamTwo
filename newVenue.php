@@ -1,3 +1,5 @@
+//Page displayed after a new venue is added to the database
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Thanks for adding your venue!</title>
@@ -18,7 +20,7 @@
 	$address = $_POST[address];
 	$city = $_POST[city];
 	$state = $_POST[state];
-	$zip = $_POST[zipcode];
+	$zip = $_POST[zip];
 		$query = "insert into venue (Name, City, State, zip, Address) VALUES ('$name', '$city', '$state', '$zip', '$address')";
 	$result = mysqli_query($db, $query) or die( mysqli_error($db));
 	
