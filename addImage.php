@@ -16,6 +16,18 @@
 $uploadDir = 'images/'; //Image Upload Folder
 
 
+if(!is_dir($uploadDir))
+
+{
+
+mkdir($uploadDir,0777);
+
+}
+
+
+
+
+
 if(isset($_POST['Submit']))
 
 {
