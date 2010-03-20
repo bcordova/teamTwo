@@ -32,7 +32,7 @@ session_start();
   		   "VALUES ('$name', '$genre', '$whenformed', '$labels', '$url', '$bandmembers')";
   
   $result = mysqli_query($db, $query)
-   or die("Error Querying Database");
+   or die("Error".mysqli_error($db));
    
   echo "<p>Current Bands On File:</p>";
   

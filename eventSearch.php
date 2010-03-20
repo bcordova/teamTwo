@@ -27,7 +27,7 @@ session_start();
   
 	
 	
-	$query = "SELECT * FROM events WHERE Name LIKE \"%$dowant%\"";
+	$query = "SELECT * FROM events WHERE Name LIKE \"%$dowant%\"";	
 	$result = mysqli_query($db, $query)
 	  or die("<p>Error Querying Database<p>");
 	
@@ -38,7 +38,7 @@ session_start();
 	
 	echo "<table><tr><th>Event</th><th>Venue</th><th>Band</th><th>Starts</th><th>Ends</th><tr>\n\n";
   
-	  while($row = mysqli_fetch_array($result)) {
+	/*  while($row = mysqli_fetch_array($result)) {
 	  	
 		$name = $row['Name'];
 		$venueID = $row['venueID'];
@@ -63,7 +63,25 @@ session_start();
 
 		
       echo "<tr><td  >$name</td><td  >$venue</td><td ><a href=\"bandview.php?tag=$bandID\">$band</a></td><td>$Starts</td><td>$Ends</td></tr>\n";
-  }	  
+  }*/
+
+	$bandquery = "SELECT events.Name AS eventName, band.Name AS bandName, venue.Name AS venueName, events.Starts, events.Ends FROM events INNER JOIN band ON events.bandID = band.bandID INNER JOIN venue ON events.venueID = venue.venueID where band.Name LIKE \"%$dowant%\" OR events.Name LIKE \"%$dowant%\" OR venue.Name LIKE \"%$dowant%\"";  
+	$result2 = mysqli_query($db, $bandquery)
+	  or die("<p>Error Querying Database<p>");
+	
+	while($row2 = mysqli_fetch_array($result2)) {
+	  	
+		$name = $row2['eventName'];
+		$venue = $row2['venueName'];
+		$band = $row2['bandName'];
+  
+		$Starts = $row2['Starts'];
+		$Ends = $row2['Ends'];
+
+		
+      echo "<tr><td  >$name</td><td  >$venue</td><td ><a href=\"bandview.php?tag=$bandID\">$band</a></td><td>$Starts</td><td>$Ends</td></tr>\n";
+  }	
+	  
 	echo "</table>\n"; 
 	
 	
