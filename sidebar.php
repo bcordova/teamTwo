@@ -16,7 +16,7 @@ echo '<p><b>Band Search:</b></p>';
 	echo '<p><b>Club Search:</b></p>';
 	echo '<p>type club name, city, zip, or type of music</p>';
 	echo '<form method="post" action="venueSearch.php">';
-	echo '<input type="text" id="searchbox" name="searchbox" />';
+	echo '<input type="text" id="searchbox" name="venuesearchbox" />';
 	echo '<input type="submit" value="go" name="submit" />';
 	echo '</form>';
 	

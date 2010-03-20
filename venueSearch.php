@@ -26,7 +26,7 @@
 	$result = mysqli_query($db, $query)
 	  or die("<p>Error Querying Database<p>");
 	
-	echo "<p>You searched for Venues containing the word \"$dowant.\"</p>";
+	echo "<p>You searched for Venues containing the word \"$dowant\"</p>";
 	
 	echo '<p><h3>Results:</h3></p>';
 	
@@ -37,11 +37,13 @@
 	  
 		$id = $row['venueID'];
 		$name = $row['Name'];
-		$cityname = $row['City'];
-		$state = $row['State'];
 		$address = $row['Address'];
+		$city = $row['City'];
+		$state = $row['State'];
+		$zip = $row['zip'];
 		
-		echo "<tr><td  ><a href=\"venueShows.php?id=$id\">$name</a></td><td  >$cityname</td><td >$state</td><td>$address</td></tr>\n";
+		
+		echo "<tr><td  ><a href=\"venueShows.php?id=$id\">$name</a></td><td>$address</td><td  >$city</td><td >$state</td><td >$zip</td></tr>\n";
 	  }
 	echo "</table>\n"; 
 	

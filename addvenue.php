@@ -44,7 +44,7 @@ else return true;
  <div id="main">
 
   <form method="post" form name=form action="newVenue.php" onSubmit="return checkFields();">
-
+	
 <pre>
 <p>Enter information about your club:</p>
 Club Name:    <input type=text name="name" size=30>
@@ -58,6 +58,8 @@ City:         <input type=text name="city" size=30>
 State:        <input type=text name="state" size=30>
 
 Zip Code:     <input type=text name="zip" size=10>
+
+<?php $queryType = 0; ?>
 
 <input type=submit name="submit" value="Submit Form!">
 
