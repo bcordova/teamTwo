@@ -11,6 +11,7 @@
  <div id="main">
 <?php
 	$id = $_GET['id'];
+	$queryType = 2;
 	
 	//echo "<p>id = $id</p>";
 	
@@ -22,12 +23,15 @@
 	  or die("Error in First Database Query");
 	
 	$row = mysqli_fetch_array($result);
+	$id = $row['venueID'];
 	$name = $row['Name'];
 	$city = $row['City'];
 	$state = $row['State'];
 	$zip = $row['zip'];
 	$address = $row['Address'];
 	
+	echo "<h4><em>$name</a><a href=\"editvenue.php?tag=$id\" style='color: #CC0000; font-size: 10px'> EDIT </a>
+	/<a href=\"newVenue.php?tag=$id\" style='color: #CC0000; font-size: 10px'>   DELETE</a>";
 	echo "<p><h3>You've reached the '$name' page</h3></p>";
 	echo "<p><h5>Location: $address</h5></p>";
 	echo "<p><h5>$city, $state, $zip</h5></p>";
