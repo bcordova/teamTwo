@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])){
+	$_SESSION['user']=$user;
+	header("location: index.php");
+	}
+?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
