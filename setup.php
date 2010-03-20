@@ -7,16 +7,27 @@ $db = mysqli_connect('localhost',$root,$pass);
 if(!$db)
 	die('Connect Error, did you enter the right information?');
 mysqli_query($db,"CREATE DATABASE IF NOT EXISTS musicwatch");
-//mysqli_close($db);
+mysqli_query($db,"GRANT ALL PRIVILEGES ON musicwatch.* to 'music'@'localhost' identified by 'dunngood'");
+mysqli_close($db);
 $db = mysqli_connect('localhost',$root,$pass,'musicwatch');
+if(!$db)
+	die('WTF?');
 $file=fopen("band.dump","r");
 
+$line="";
 while(!feof($file))
 {
-$line = fgets($file);
+$fline = fgets($file);
+$line = trim($line) . trim($fline);
+//echo $line . "<br />\n";
+if(preg_match('/^.*;$/',$line))
+{
 mysqli_query($db,$line);
-echo $line ."<br/>";
+$line="";
 }
+
+}
+echo "Database Successfully loaded!";
 fclose($file);
 }
 else

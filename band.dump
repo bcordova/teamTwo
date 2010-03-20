@@ -3,8 +3,6 @@
 -- Host: localhost    Database: musicwatch
 -- ------------------------------------------------------
 -- Server version	5.1.37-1ubuntu5.1
-CREATE DATABASE IF NOT EXISTS musicwatch;
-GRANT ALL PRIVILEGES ON musicwatch.* to 'music'@localhost' indentified by 'dunngood';
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -21,7 +19,6 @@ GRANT ALL PRIVILEGES ON musicwatch.* to 'music'@localhost' indentified by 'dunng
 --
 -- Table structure for table `band`
 --
-
 DROP TABLE IF EXISTS `band`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
