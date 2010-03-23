@@ -20,8 +20,11 @@ if (!isset($_SESSION['user'])){
 
 <?php
 include "db_connect.php";
+
 $id = $_GET['tag'];
-echo "$id <--ID";
+//static $ids =& $id;
+//echo "$id <--ID";
+
 $uploadDir = 'images/'; //Image Upload Folder
 
 
@@ -36,6 +39,7 @@ $uploadDir = 'images/'; //Image Upload Folder
 if(isset($_POST['Submit']))
 
 {
+
 
 
 $fileName = $_FILES['Photo']['name'];
@@ -70,15 +74,17 @@ $query = "UPDATE band SET image = '$fileName' WHERE bandID = '$id'";
   
 $result = mysqli_query($db, $query)
    or die("Error Querying Database");
+   
+echo "Thanks for submitting the photo.";
+echo "<p>Click<a href=\"bandview.php?tag=$id\"> HERE </a> to return to the band page.</p>";
 
 }
 
 
 mysqli_close($db);
-
 ?> 
 	
-	<form name="Image" enctype="multipart/form-data" action="addImage.php" method="POST">
+	<form name="Image" enctype="multipart/form-data" <?php echo "action='addImage.php?tag=$id'" ?> method="POST">
 
 	<input type="file" name="Photo" size="30" accept="image/gif, image/jpeg, image/x-ms-bmp, image/x-png"><br/>
 
