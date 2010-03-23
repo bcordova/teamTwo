@@ -77,7 +77,7 @@ $venueResults = mysqli_query($db, $venueQuery)
 echo 'Venue:		<select name = "venue">';
 while($venueRows = mysqli_fetch_array($venueResults)){
 	$temp = $venueRows[0];
-	echo "<option>$temp</option>";
+	echo "<option value=$temp>$temp</option>";
 }
 echo '</select>';
 
@@ -90,7 +90,7 @@ $bandResults = mysqli_query($db, $bandQuery)
 echo 'Band:		<select name = "band">';
 while($bandRows = mysqli_fetch_array($bandResults)){
 	$temp = $bandRows[0];
-	echo "<option>$temp</option>";
+	echo "<option value=$temp>$temp</option>";
 }
 echo '</select>';
 
