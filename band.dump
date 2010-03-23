@@ -4,7 +4,6 @@
 -- ------------------------------------------------------
 -- Server version	5.1.37-1ubuntu5.1
 
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -17,8 +16,24 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `address`
+--
+
+DROP TABLE IF EXISTS `address`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `address` (
+  `zip` varchar(10) NOT NULL,
+  `state` varchar(50) DEFAULT NULL,
+  `City` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`zip`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `band`
 --
+
 DROP TABLE IF EXISTS `band`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -30,8 +45,9 @@ CREATE TABLE `band` (
   `labels` varchar(100) DEFAULT NULL,
   `website` varchar(100) DEFAULT NULL,
   `members` blob,
+  `image` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`bandID`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,6 +61,7 @@ CREATE TABLE `comments` (
   `commentID` int(11) NOT NULL AUTO_INCREMENT,
   `userID` int(11) DEFAULT NULL,
   `bandID` int(11) DEFAULT NULL,
+  `post_time` time DEFAULT NULL,
   `text` blob,
   PRIMARY KEY (`commentID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -85,7 +102,7 @@ CREATE TABLE `users` (
   `LastName` varchar(30) DEFAULT NULL,
   `BirthDate` date DEFAULT NULL,
   PRIMARY KEY (`userID`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,8 +115,6 @@ DROP TABLE IF EXISTS `venue`;
 CREATE TABLE `venue` (
   `venueID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(100) DEFAULT NULL,
-  `City` varchar(50) DEFAULT NULL,
-  `State` varchar(50) DEFAULT NULL,
   `zip` varchar(10) DEFAULT NULL,
   `Address` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`venueID`)
@@ -115,4 +130,4 @@ CREATE TABLE `venue` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-03-15 17:11:17
+-- Dump completed on 2010-03-23 13:47:16
