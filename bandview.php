@@ -38,7 +38,7 @@ session_start();
 	$website = $row['website'];
 	$labels = $row['labels'];
 	$bandMembers = $row['members'];
-	
+	$uploadedImage = $row['image'];
 	
 	
 	
@@ -62,19 +62,24 @@ session_start();
  $imgs = dir($img_folder);
 
 
-  $image = "nophoto.jpg";
+ $image = "nophoto.jpg";
 
 //display image
 
  
  if (isset($_SESSION['user'])){
+ if ($uploadedImage == "" or $uploadedImage == NULL){
  echo '<img src="'.$img_folder.$image.'" border=1>';
  echo "<p><a href=\"addImage.php?tag=$id\" style='color: #CC0000; font-size: 10px'>ADD PICTURE</a></em></p>";
+ }else {
+ 
+ echo '<img src="'.$img_folder.$uploadedImage.'" border=1>';
+ }
  }
 	
 	
 	
-	
+
 	echo "<p><h5>Established:</h5> $estDate</p>";
 	echo "<p><h5>Genres:</h5>$bandGenre</p>";
 	echo "<p><h5>Band Members:</h5>$bandMembers</p>";
