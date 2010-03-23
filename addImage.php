@@ -15,30 +15,28 @@ if (!isset($_SESSION['user'])){
 	
 	<div id="wrap">
  <BODY>
- <?php include("header.php"); ?>
+ <?php include("header.php");?>
  <div id="main">
 
 <?php
+include "db_connect.php";
 $id = $_GET['tag'];
-
+echo "$id <--ID";
 $uploadDir = 'images/'; //Image Upload Folder
 
 
-if(!is_dir($uploadDir))
+//if(!is_dir($uploadDir))
 
-{
+//{
 
-mkdir($uploadDir,0777);
+//mkdir($uploadDir,0777);
 
-}
-
-
-
-
+//}
 
 if(isset($_POST['Submit']))
 
 {
+
 
 $fileName = $_FILES['Photo']['name'];
 
@@ -48,11 +46,7 @@ $fileSize = $_FILES['Photo']['size'];
 
 $fileType = $_FILES['Photo']['type'];
 
- 
-
 $filePath = $uploadDir . $fileName;
-
- 
 
 $result = move_uploaded_file($tmpName, $filePath);
 
@@ -63,9 +57,8 @@ echo "Error uploading file";
 exit;
 
 }
-if(!get_magic_quotes_gpc())
 
-{
+if(!get_magic_quotes_gpc()) {
 
 $fileName = addslashes($fileName);
 
@@ -73,15 +66,19 @@ $filePath = addslashes($filePath);
 
 }
 
-//$query = "INSERT INTO $db_table ( Image ) VALUES ('$filePath')";
-
-//mysql_query($query) or die('Error, query failed');
+$query = "UPDATE band SET image = '$fileName' WHERE bandID = '$id'";
+  
+$result = mysqli_query($db, $query)
+   or die("Error Querying Database");
 
 }
 
+
+mysqli_close($db);
+
 ?> 
 	
-	<form name="Image" enctype="multipart/form-data" action="index.php" method="POST">
+	<form name="Image" enctype="multipart/form-data" action="addImage.php" method="POST">
 
 	<input type="file" name="Photo" size="30" accept="image/gif, image/jpeg, image/x-ms-bmp, image/x-png"><br/>
 

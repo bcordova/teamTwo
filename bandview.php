@@ -54,28 +54,14 @@ session_start();
 	}
 	
 
- $imglist='';
 
  
  $img_folder = "images/";
- //$img_folder = "htdocs/";
 
- //mt_srand((double)microtime()*1000);
 
  $imgs = dir($img_folder);
 
- //while ($file = $imgs->read()) {
-   //if (eregi("gif", $file) || eregi("jpg", $file) || eregi("png", $file))
-     //$imglist .= "$file ";
 
-// } closedir($imgs->handle);
-
-  //put all images into an array
- //$imglist = explode(" ", $imglist);
- //$no = sizeof($imglist)-2;
-
- //generate a random number between 0 and the number of images
-// $random = mt_rand(0, $no);
   $image = "nophoto.jpg";
 
 //display image
