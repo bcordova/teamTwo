@@ -99,7 +99,7 @@ session_start();
 	echo "<p><h5>Website:</h5><a href=\"$website\">$website</a></p>"; 
 	
 	if(!$eventName==null){
-	echo "<p><h5>Upcoming Shows:</h5></p>";
+	echo "<p><h5>Upcoming Show:</h5></p>";
 	echo "<table>";
 	echo "
 	<tr>
