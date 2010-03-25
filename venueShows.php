@@ -17,7 +17,7 @@
 	
 	include("db_connect.php");
 	
-	$query = "select * from venue where venueID = $id";
+	$query = "select * from venue natural join address where venueID = $id";
 
 	$result = mysqli_query($db, $query)
 	  or die("Error in First Database Query");
