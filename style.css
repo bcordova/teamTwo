@@ -66,6 +66,15 @@ div#venue{
 		padding: 15px;
 		
 		}
+	#comment{
+		float: left;
+		width: 490px;
+		text-align: left;
+		margin-top: 40px;
+		color: #458B74;
+		background-color: #ECF1EF;
+		
+		}
 		
 	#sidebar{
 		float: left;

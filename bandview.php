@@ -82,12 +82,44 @@ session_start();
 	echo "<p><h5>Website:</h5><a href=\"$website\">$website</a></p>";
 	
 	
-	mysqli_close($db);
 
 ?>
+<?php if(isset($_SESSION['user']))
+{
+if(isset($_POST['post']))
+{
+$query = "select userID, Username from users where userID='" . $_SESSION['user'] . "'";
+echo $query;
+$r = mysqli_query($db,$query);
 
-
+$query2 = "insert into comments (userID,bandID,text) values('" . $_SESSION['user'] . "','$id','" . $_POST['message'] . "')";
+mysqli_query($db,$query2);
+echo "<br />";
+echo date("G:i:s");
+echo "<br />";
+echo date("Y-m-d");
+echo "<br />";
+}
+?>
+<div id="comment">
+<form method="post" action=<?php print "bandview.php?tag=" . $_GET['tag'] ?>>
+<h3>Comments</h3>
+<hr>
+Hi This is a witty Comment!
+<p><font size=0> 10:19 AM Tuesday, March 23 2010 <b>Hazmatt4</b></font></p>
+<br />
+<br />
+<h3> Post A Comment!</h3>
+<textarea rows=8 cols=65 name="message"></textarea>
+<input type="submit" name="post" value="Post" />
 </div>
+<?php
+}
+else
+echo "<br /> <br/><font size=0>You need to be logged in to see comments</font>";
+?>
+</div>
+
 <?php include("sidebar.php"); ?>
 </div>
  </BODY>

@@ -5,10 +5,10 @@ if(isset($_POST['login']))
 {
 	$user = $_POST['user'];
 	$password = $_POST['password'];
-	$query = "select Username from users where password=SHA('$password')";
+	$query = "select userID, Username from users where password=SHA('$password')";
 	$r = mysqli_query($db,$query);
 	if($row =mysqli_fetch_array($r))
-	$_SESSION['user']=$user;
+	$_SESSION['user']=$row['userID'];
 	else
 	{
 	header("location: login.php");
