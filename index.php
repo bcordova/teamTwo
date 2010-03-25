@@ -71,7 +71,7 @@ if(isset($_POST['login']))
 <?php
 	include("db_connect.php");
 	
-	$query = "SELECT Name, City, State, zip, Address FROM venue ORDER BY RAND() LIMIT 1";
+	$query = "SELECT Name, City, State, zip, Address FROM venue natural join address ORDER BY RAND() LIMIT 1";
 	$result = mysqli_query($db, $query)
 		or die("Error querying Database");
 		

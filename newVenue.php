@@ -36,18 +36,21 @@
 	}
 	//for new venue
 	else if($queryType == 0){
-		$query = "insert into venue (Name, City, State, zip, Address) VALUES ('$name', '$city', '$state', '$zip', '$address')";
+		$query = "insert into venue (Name, zip, Address) VALUES ('$name', '$zip', '$address')";
+		$query2 = "insert into address (zip, State, City) VALUES ( '$zip', '$state','$city' )";
+	$result = mysqli_query($db, $query) or die( mysqli_error($db));
+	$result = mysqli_query($db, $query2) or die( mysqli_error($db));
 	}
 	//Update venue
 	else if($queryType == 1){
-		$query = "UPDATE venue SET Name='$name', Address='$address', City='$city', State ='$state', zip='$zip'  WHERE venueID = '$id'"; 
+		$query = "UPDATE venue natural join address SET Name='$name', Address='$address', City='$city', State ='$state', zip='$zip'  WHERE venueID = '$id'"; 
+	$result = mysqli_query($db, $query) or die( mysqli_error($db));
 	}
 	//Delete venue
 	
 	
-	$result = mysqli_query($db, $query) or die( mysqli_error($db));
 	
-	$query = "select * from venue";
+	$query = "select * from venue natural join address";
 	$result = mysqli_query($db, $query) or die( mysqli_error($db));
 
 	echo "<p>Current Venues On File:</p>";

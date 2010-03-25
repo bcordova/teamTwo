@@ -21,7 +21,7 @@
 	
 	$dowant = $_POST['venuesearchbox'];
 	
-	$query = "SELECT * FROM venue WHERE name LIKE '$dowant%' OR city LIKE '$dowant%' OR state LIKE '$dowant%' OR zip LIKE '$dowant%' OR address LIKE '$dowant%'";
+	$query = "SELECT * FROM venue natural join address WHERE name LIKE '$dowant%' OR city LIKE '$dowant%' OR state LIKE '$dowant%' OR zip LIKE '$dowant%' OR address LIKE '$dowant%'";
 	
 	$result = mysqli_query($db, $query)
 	  or die("<p>Error Querying Database<p>");

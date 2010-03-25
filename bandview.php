@@ -43,7 +43,7 @@ session_start();
 	
 	//JOIN VENUE AND EVENTS TABLE
 	//$query = "select venue.name, venue.city, venue.state, events.Name from venue inner join events on venue.venueid=events.venueid where events.bandid = 0";
-	$query = "select venue.name, venue.city, venue.state, events.Name from venue inner join events on venue.venueid=events.venueid where events.bandid = '$id' limit 1";
+/*	$query = "select venue.name, venue.city, venue.state, events.Name from venue inner join events on venue.venueid=events.venueid where events.bandid = '$id' limit 1";
 
     $result = mysqli_query($db, $query)
     or die("Error querying Database");
@@ -54,7 +54,7 @@ session_start();
 	$eventName = $row['Name'];
 	$venueName = $row['name'];
 	//JOIN VENUE AND EVENTS TABLE
-	
+*/	
 	
 	//ONLY DISPLAY EDIT/DELETE TO LOGGED IN USERS
 	echo "<h4><em>$bandName</a>";
@@ -123,11 +123,9 @@ session_start();
 {
 if(isset($_POST['post']))
 {
-$query = "select userID, Username from users where userID='" . $_SESSION['user'] . "'";
-echo $query;
 $r = mysqli_query($db,$query);
 
-$query2 = "insert into comments (userID,bandID,text) values('" . $_SESSION['user'] . "','$id','" . $_POST['message'] . "')";
+$query2 = "insert into comments (userID,bandID,post_time,post_date,text) values('" . $_SESSION['user'] . "','$id','" . date("G:i:s") . "','" . date("Y-m-d") ."','" . $_POST['message'] . "')";
 mysqli_query($db,$query2);
 echo "<br />";
 echo date("G:i:s");
@@ -139,9 +137,16 @@ echo "<br />";
 <div id="comment">
 <form method="post" action=<?php print "bandview.php?tag=" . $_GET['tag'] ?>>
 <h3>Comments</h3>
-<hr>
-Hi This is a witty Comment!
-<p><font size=0> 10:19 AM Tuesday, March 23 2010 <b>Hazmatt4</b></font></p>
+<?php
+$query3 = "select * from comments natural join users where bandID='$id' order by post_date, post_time desc";
+$res = mysqli_query($db,$query3);
+while($row = mysqli_fetch_array($res))
+{
+echo "<hr>";
+echo $row['text'];
+echo "<p><font size=0> " . $row['post_time']. ", " . $row['post_date'] . " <b>" . $row['Username'] . "</b></font></p>";
+}
+?>
 <br />
 <br />
 <h3> Post A Comment!</h3>
