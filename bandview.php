@@ -43,18 +43,18 @@ session_start();
 	
 	//JOIN VENUE AND EVENTS TABLE
 	//$query = "select venue.name, venue.city, venue.state, events.Name from venue inner join events on venue.venueid=events.venueid where events.bandid = 0";
-/*	$query = "select venue.name, venue.city, venue.state, events.Name from venue inner join events on venue.venueid=events.venueid where events.bandid = '$id' limit 1";
+	$query = "select venue.name, events.Name from venue inner join events on venue.venueid=events.venueid where events.bandid = '$id' limit 1";
 
     $result = mysqli_query($db, $query)
     or die("Error querying Database");
 	
 	$row = mysqli_fetch_array($result);
-	$city=$row['city'];
-	$state=$row['state'];
+	//$city=$row['city'];
+	//$state=$row['state'];
 	$eventName = $row['Name'];
 	$venueName = $row['name'];
 	//JOIN VENUE AND EVENTS TABLE
-*/	
+
 	
 	//ONLY DISPLAY EDIT/DELETE TO LOGGED IN USERS
 	echo "<h4><em>$bandName</a>";
@@ -105,14 +105,12 @@ session_start();
 	<tr>
 	<th>Event</th>
 	<th>Venue</th>
-	<th>City</th>
-	<th>State</th>
+
 	</tr>
 	<tr>
 	<td>$eventName</td>
 	<td>$venueName</td>
-	<td>$city</td>
-	<td>$state</td>
+	
 	</tr>";
 	echo "</table>";
 	} 
@@ -136,7 +134,7 @@ echo "<br />";
 ?>
 <div id="comment">
 <form method="post" action=<?php print "bandview.php?tag=" . $_GET['tag'] ?>>
-<h3>Comments</h3>
+<h5>Comments</h5>
 <?php
 $query3 = "select * from comments natural join users where bandID='$id' order by post_date, post_time desc";
 $res = mysqli_query($db,$query3);
@@ -144,7 +142,7 @@ while($row = mysqli_fetch_array($res))
 {
 echo "<hr>";
 echo $row['text'];
-echo "<p><font size=0> " . $row['post_time']. ", " . $row['post_date'] . " <b>" . $row['Username'] . "</b></font></p>";
+echo "<font size=0> " . $row['post_time']. ", " . $row['post_date'] . " <b>" . $row['Username'] . "</b></font>";
 }
 ?>
 <br />
