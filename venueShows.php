@@ -35,7 +35,8 @@
 	echo "<p><h3>You've reached the '$name' page</h3></p>";
 	echo "<p><h5>Location: $address</h5></p>";
 	echo "<p><h5>$city, $state, $zip</h5></p>";
-	
+	echo "<a href=\"http://maps.google.com/search?hl=en&source=hp&q='$address'+'$city'+'$state'+'$zip'\" style=' color: #CC0000; font-size: 10px'> MAP IT </a>";
+
 	$query = "select * from events where venueID = '$id'";
 	$result = mysqli_query($db, $query)
 	  or die("Error in Second Database Query");
