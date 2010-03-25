@@ -36,7 +36,7 @@ session_start();
   //echo "Starts: $starts";
   //echo "Ends: $end";
   //echo "Description: $description";
-  $query="select bandID from band where name like 'rage%'";
+  $query="select bandID from band where name like '$band%'";
   $result = mysqli_query($db, $query)
 	or die("Error Querying Database: bandID");
   $row = mysqli_fetch_array($result);
