@@ -18,7 +18,7 @@ session_start();
 	<div id="main">
 	<h3>Thank you for entering your information.</h3>
 <?php
-  $id = $_GET['tag'];
+  //$id = $_GET['tag'];
   include "db_connect.php";
 
   $name = $_POST['name'];
@@ -29,15 +29,19 @@ session_start();
   $starts = $_POST['starts'] ;
   $end = $_POST['ends'];
   $description = $_POST['description'];
-  
-  echo "Name: $name";
-  echo "Venue: $venue";
-  echo "Band: $band";
-  echo "Starts: $starts";
-  echo "Ends: $end";
-  echo "Description: $description";
-  
-  
+ 
+  //echo "Name: $name";
+  //echo "Venue: $venue";
+  //echo "Band: $band";
+  //echo "Starts: $starts";
+  //echo "Ends: $end";
+  //echo "Description: $description";
+  $query="select bandID from band where name like 'rage%'";
+  $result = mysqli_query($db, $query)
+	or die("Error Querying Database: bandID");
+  $row = mysqli_fetch_array($result);
+  $id = $row['bandID']; 
+	
   
   $venuequery = "SELECT venueID FROM venue where NAME='$venue'"; 
   $venueResult = mysqli_query($db, $venuequery)
@@ -45,15 +49,15 @@ session_start();
   $vRow = mysqli_fetch_array($venueResult);
   $venueID = $vRow[0];  
   
-  $bandquery = "SELECT bandID FROM band where NAME='$band'";
-  $bandResult = mysqli_query($db, $bandquery)
-	or die("Error Querying Database: BandID");
-  $bRow = mysqli_fetch_array($bandResult);
-  $bandID = $bRow[0];  
+//  $bandquery = "SELECT bandID FROM band where NAME='$band'";
+  //$bandResult = mysqli_query($db, $bandquery)
+	//or die("Error Querying Database: BandID");
+  //$bRow = mysqli_fetch_array($bandResult);
+  //$bandID = $bRow[0];  
   
   
   $eventquery = "INSERT INTO events (Name, venueID, bandID, Starts, Ends, Description) " . 
-  		   "VALUES ('$name', '$venueID', '$bandID', '$starts $stime:00', '$end $etime:00', '$Description')";
+  		   "VALUES ('$name', '$venueID', '$id', '$starts $stime:00', '$end $etime:00', '$Description')";
   //echo $eventquery;
   $result = mysqli_query($db, $eventquery)
    or die("Error Querying Database: Inserting into events");
