@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `address`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `address` (
   `zip` varchar(10) NOT NULL,
-  `state` varchar(50) DEFAULT NULL,
+  `State` varchar(50) DEFAULT NULL,
   `City` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`zip`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -47,7 +47,7 @@ CREATE TABLE `band` (
   `members` blob,
   `image` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`bandID`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,10 +61,11 @@ CREATE TABLE `comments` (
   `commentID` int(11) NOT NULL AUTO_INCREMENT,
   `userID` int(11) DEFAULT NULL,
   `bandID` int(11) DEFAULT NULL,
+  `post_date` date DEFAULT NULL,
   `post_time` time DEFAULT NULL,
   `text` blob,
   PRIMARY KEY (`commentID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,7 +84,7 @@ CREATE TABLE `events` (
   `Ends` datetime DEFAULT NULL,
   `Description` blob,
   PRIMARY KEY (`eventID`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,7 +103,7 @@ CREATE TABLE `users` (
   `LastName` varchar(30) DEFAULT NULL,
   `BirthDate` date DEFAULT NULL,
   PRIMARY KEY (`userID`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,7 +119,7 @@ CREATE TABLE `venue` (
   `zip` varchar(10) DEFAULT NULL,
   `Address` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`venueID`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -130,4 +131,4 @@ CREATE TABLE `venue` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-03-23 13:47:16
+-- Dump completed on 2010-03-25 11:28:25
