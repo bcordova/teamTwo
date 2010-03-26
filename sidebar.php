@@ -7,6 +7,10 @@
 	
 		
 echo '<p><b>Band Search:</b></p>';
+	
+	
+	
+	
 	echo '<p>type club name, city, zip, or type of music</p>';
 	echo '<form method="post" action="bandSearch.php">';
 	echo '<input type="text" id="searchbox" name="searchbox" />';
@@ -26,6 +30,10 @@ echo '<p><b>Band Search:</b></p>';
 	echo '<input type="text" name="eventSearchBox" />';
 	echo '<input type="submit" value="go" name="submit" />';
 	echo '</form>';
+	
+	$img_folder = "images/";
+	$bannerImage = "mcd.gif";
+	//echo '<img width="248" img src="'.$img_folder.$bannerImage.'" border=1>';
 	
 	
 	mysqli_close($db);

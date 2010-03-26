@@ -41,6 +41,7 @@ session_start();
 	$uploadedImage = $row['image'];
 	
 	
+	
 	//JOIN VENUE AND EVENTS TABLE
 	//$query = "select venue.name, venue.city, venue.state, events.Name from venue inner join events on venue.venueid=events.venueid where events.bandid = 0";
 	$query = "select venue.name, events.Name from venue inner join events on venue.venueid=events.venueid where events.bandid = '$id' limit 1";
@@ -89,6 +90,11 @@ session_start();
  echo '<img src="'.$img_folder.$uploadedImage.'" border=1>';
  }
  }
+ 
+ 
+ 
+ 
+ 
 //DISPLAY BAND IMAGE	
 	
 
@@ -125,11 +131,6 @@ $r = mysqli_query($db,$query);
 
 $query2 = "insert into comments (userID,bandID,post_time,post_date,text) values('" . $_SESSION['user'] . "','$id','" . date("G:i:s") . "','" . date("Y-m-d") ."','" . $_POST['message'] . "')";
 mysqli_query($db,$query2);
-echo "<br />";
-echo date("G:i:s");
-echo "<br />";
-echo date("Y-m-d");
-echo "<br />";
 }
 ?>
 <div id="comment">
@@ -145,10 +146,9 @@ echo $row['text'];
 echo "<font size=0> " . $row['post_time']. ", " . $row['post_date'] . " <b>" . $row['Username'] . "</b></font>";
 }
 ?>
-<br />
-<br />
+
 <h3> Post A Comment!</h3>
-<textarea rows=8 cols=65 name="message"></textarea>
+<textarea rows=8 cols=58.5 name="message"></textarea>
 <input type="submit" name="post" value="Post" />
 </div>
 <?php
