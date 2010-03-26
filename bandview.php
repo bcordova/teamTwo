@@ -58,7 +58,8 @@ session_start();
 
 	
 	//ONLY DISPLAY EDIT/DELETE TO LOGGED IN USERS
-	echo "<h4><em>$bandName</a>";
+	echo "<h4><em><span style='color:#000000'>$bandName</span></em></h4>";
+	//echo "<h4><em>$bandName</em></a>";
 	if (isset($_SESSION['user'])){
 
 	//echo "User : ".$_SESSION['user'];
@@ -91,21 +92,27 @@ session_start();
  }
  }
  
- 
+ //575A2E
  
  
  
 //DISPLAY BAND IMAGE	
 	
-
+	echo "<p><h5><span style='color:#000000'>Established:</span></h5></p> $estDate";
+	echo "<p><h5><span style='color:#000000'>Genre:</span></h5></p> $bandGenre";
+	echo "<p><h5><span style='color:#000000'>Band Members:</span></h5></p> $bandMembers";
+	echo "<p><h5><span style='color:#000000'>Labels:</span></h5></p> $labels";
+	echo "<p><h5><span style='color:#000000'>Website:</span></h5></p> $website";
+	/*
 	echo "<p><h5>Established:</h5> $estDate</p>";
 	echo "<p><h5>Genres:</h5>$bandGenre</p>";
 	echo "<p><h5>Band Members:</h5>$bandMembers</p>";
 	echo "<p><h5>Labels:</h5>$labels</p>";
 	echo "<p><h5>Website:</h5><a href=\"$website\">$website</a></p>"; 
-	
+	*/
 	if(!$eventName==null){
-	echo "<p><h5>Upcoming Show:</h5></p>";
+	echo "<p><h5><span style='color:#000000'>Upcoming Shows:</span></h5></p>";
+	//echo "<p><h5>Upcoming Show:</h5></p>";
 	echo "<table>";
 	echo "
 	<tr>
@@ -135,7 +142,7 @@ mysqli_query($db,$query2);
 ?>
 <div id="comment">
 <form method="post" action=<?php print "bandview.php?tag=" . $_GET['tag'] ?>>
-<h5>Comments</h5>
+<h5><span style='color:#000000'>Comments</span></h5>
 <?php
 $query3 = "select * from comments natural join users where bandID='$id' order by post_date, post_time desc";
 $res = mysqli_query($db,$query3);

@@ -22,7 +22,7 @@ th{
 }
 
 div#artist{
-	color: #458B74;
+	color: #575A2E;
 	background-color: #FFFFF2;
 	
 	margin:10px;
@@ -31,7 +31,7 @@ div#artist{
 
 
 div#venue{
-	color: #458B74;
+	color: #575A2E;
 	background-color: #FFFFF2;
 	
 	margin:10px;
@@ -39,7 +39,7 @@ div#venue{
 	
 	body
 	{
-		color: #458B74;
+		color: #575A2E;
 		padding: 0;
 		margin: 0;
 		background-color: #9BCD9B;
@@ -63,7 +63,7 @@ div#venue{
 	}
 	
 	#wrap{
-		color: #458B74;
+		color: #575A2E;
 		width: 780px;
 		margin-top: 40px;
 		margin-right: auto;
@@ -75,7 +75,7 @@ div#venue{
 		float: left;
 		width: 490px;
 		text-align: left;
-		color: #458B74;
+		color: #575A2E;
 		background-color: #ECF1EF;
 		padding: 15px;
 		

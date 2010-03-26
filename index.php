@@ -52,12 +52,17 @@ if(isset($_POST['login']))
 	$estDate = $row['Year_Started'];
 	$website = $row['website'];
 	
+	echo "<p><h4><span style='color:#000000'><a href=\"bandview.php?tag=$id\">$bandName</a></span></h4></p>";
+	echo "<p><h5><span style='color:#000000'>Established:</span></h5></p> $estDate";
+	echo "<p><h5><span style='color:#000000'>Genre:</span></h5></p> $bandGenre";
+	echo "<p><h5><span style='color:#000000'>Website:</span></h5></p> <a href=\"$website\">$website</a>";
 	
+	/*
 	echo "<h4><em><a href=\"bandview.php?tag=$id\">$bandName</a></em></h4>";
 	echo "<p><h5>Established:</h5> $estDate</p>";
 	echo "<p><h5>Genres:</h5>$bandGenre</p>";
 	echo "<p><h5>Website:</h5><a href=\"$website\">$website</a></p>";
-	
+	*/
 	
 	mysqli_close($db);
 
