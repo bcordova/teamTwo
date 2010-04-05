@@ -41,7 +41,11 @@ if(isset($_POST['login']))
 	
 	
 	
-	$query = "select bandID, Name, Genre, website, members, Year_Started from band ORDER BY RAND() LIMIT 1";
+	//echo '<body background="'.$img_folder.$bannerImage.'">';
+
+	
+	
+	$query = "select bandID, Name, Genre, website, members, Year_Started, image from band ORDER BY RAND() LIMIT 1";
 	$result = mysqli_query($db, $query)
 	  or die("Error querying Database");
 	
@@ -51,6 +55,21 @@ if(isset($_POST['login']))
 	$bandGenre = $row['Genre'];
 	$estDate = $row['Year_Started'];
 	$website = $row['website'];
+	$uploadedImage = $row['image'];
+	
+    $img_folder = "images/";
+
+
+ $image = "nophoto.jpg";
+ if ($uploadedImage == "" or $uploadedImage == NULL){
+ echo '<img class="artist" border=2 hspace=10 src="'.$img_folder.$image.'" align="right" width="250" >';
+ }else {
+ echo '<img class="artist" border=2 hspace=10 src="'.$img_folder.$uploadedImage.'" align="right" width="250" >';
+ }
+ 
+	
+	
+	
 	
 	echo "<p><h4><span style='color:#000000'><a href=\"bandview.php?tag=$id\">$bandName</a></span></h4></p>";
 	echo "<p><h5><span style='color:#000000'>Established:</span></h5></p> $estDate";

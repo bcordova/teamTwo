@@ -3,11 +3,6 @@
 	<a href="index.php" ><img class="header" border=0 src="images/sb.jpg" align="middle" width="780"alt ""></a>
 	
 	
-	<?php
-	$img_folder = "images/";
-	$bannerImage="ipod.jpg";
-	echo '<body background="'.$img_folder.$bannerImage.'">';
-	?>
 	
 	
 	</div>
